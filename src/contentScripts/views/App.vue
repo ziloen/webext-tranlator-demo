@@ -44,11 +44,13 @@ useEventListener(document, 'pointerup', (e) => {
 function onTraslate(e: MouseEvent) {
   e.stopPropagation()
   showBtn.value = false
-  fetch('https://api.66mz8.com/api/translation.php?info=' + encodeURIComponent(tranlationText.value))
+  fetch(
+    'https://api.66mz8.com/api/translation.php?info=' + encodeURIComponent(tranlationText.value),
+    { mode: 'cors', method: 'POST' }
+  )
     .then(res => res.json())
-
     .then(result => {
-      console.log(result)
+      if (result.code !== 200) return Promise.reject()
       resultText.value = result.fanyi
     })
     .catch(e => resultText.value = '翻译时出错')
