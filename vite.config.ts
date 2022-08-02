@@ -2,6 +2,7 @@
 
 import React from '@vitejs/plugin-react'
 import Vue from '@vitejs/plugin-vue'
+import { MV3Hmr } from './vite-mv3-hmr'
 import { dirname, relative } from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -99,7 +100,6 @@ export default defineConfig(({ command }) => ({
     },
     rollupOptions: {
       input: {
-        background: r('src/background/index.html'),
         options: r('src/options/index.html'),
         popup: r('src/popup/index.html'),
       },
@@ -107,11 +107,11 @@ export default defineConfig(({ command }) => ({
   },
   plugins: [
     ...sharedConfig.plugins!,
-
     // https://github.com/antfu/vite-plugin-windicss
     WindiCSS({
       config: windiConfig,
     }),
+    MV3Hmr(),
   ],
   test: {
     globals: true,

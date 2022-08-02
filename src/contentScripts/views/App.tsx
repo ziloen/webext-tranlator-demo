@@ -3,7 +3,7 @@ import { asType } from '@wai-ri/core'
 import 'virtual:windi.css'
 
 
-function App() {
+export default function App() {
   const [showBtn, setShowBtn] = useState(true)
   const [resultText, setResultText] = useState('')
   const [showTranslate, setShowTranslate] = useState(false)
@@ -60,5 +60,3 @@ function App() {
     </div>
   )
 }
-
-export default App
