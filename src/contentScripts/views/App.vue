@@ -29,13 +29,6 @@ useEventListener(document, 'pointerup', (e) => {
   tranlationText.value = text
   resultText.value = ''
 
-
-
-  // const rect = selection.getRangeAt(0).getBoundingClientRect()
-  // console.log(rect)
-  // topVal.value = rect.top
-  // leftVal.value = rect.left
-
   const { clientX, clientY } = e
   topVal.value = clientY
   leftVal.value = clientX
