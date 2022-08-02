@@ -77,7 +77,7 @@ function onTraslate(e: MouseEvent) {
       </button>
       <div
         v-else
-        class="bg-light-50 shadow-light-50 text-black"
+        class="bg-light-50 shadow-sm text-black"
       >
         {{ resultText || '翻译中...' }}
       </div>
