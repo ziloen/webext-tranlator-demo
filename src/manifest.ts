@@ -59,11 +59,8 @@ export async function getManifest() {
     // for content script, as browsers will cache them for each reload,
     // we use a background script to always inject the latest version
     // see src/background/contentScriptHMR.ts
-    delete manifest.content_scripts
+    // delete manifest.content_scripts
     manifest.permissions?.push('webNavigation')
-
-    // this is required on dev for Vite script to load
-    // manifest.content_security_policy = `script-src 'self' http://localhost:${port}; object-src 'self'`
   }
 
   return manifest
