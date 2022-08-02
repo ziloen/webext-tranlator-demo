@@ -28,8 +28,11 @@
     "@iconify/json": "^2.1.30",
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^17.0.25",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
     "@types/webextension-polyfill": "^0.8.3",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@vitejs/plugin-react": "^1",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/compiler-sfc": "^3.2.33",
     "@vue/test-utils": "^2.0.0-rc.20",
@@ -59,6 +62,8 @@
     "webextension-polyfill": "^0.9.0"
   },
   "dependencies": {
-    "@wai-ri/core": "^0.0.69"
+    "@wai-ri/core": "^0.0.69",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

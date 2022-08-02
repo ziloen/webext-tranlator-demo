@@ -1,12 +1,16 @@
 /* eslint-disable no-console */
 import { onMessage } from 'webext-bridge'
-import { createApp } from 'vue'
-import App from './views/App.vue'
+// import { createApp } from 'vue'
+// import App from './views/App.vue'
+import App from './views/App'
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
 // Firefox `browser.tabs.executeScript()` requires scripts return a primitive value
 (() => {
   console.clear()
-  console.info('[vitesse-webext] Hello world from content script')
+  console.info('脚本注入')
 
   // communication example: send previous tab title from background page
   onMessage('tab-prev', ({ data }) => {
@@ -24,5 +28,10 @@ import App from './views/App.vue'
   shadowDOM.appendChild(styleEl)
   shadowDOM.appendChild(root)
   document.body.appendChild(container)
-  createApp(App).mount(root)
+  // createApp(App).mount(root);
+
+  ReactDOM.createRoot(root).render(
+    <App />
+  )
+
 })()

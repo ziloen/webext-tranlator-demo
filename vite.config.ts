@@ -1,16 +1,17 @@
 /// <reference types="vitest" />
 
+import React from '@vitejs/plugin-react'
+import Vue from '@vitejs/plugin-vue'
 import { dirname, relative } from 'path'
+import AutoImport from 'unplugin-auto-import/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Icons from 'unplugin-icons/vite'
+import Components from 'unplugin-vue-components/vite'
 import type { UserConfig } from 'vite'
 import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
 import WindiCSS from 'vite-plugin-windicss'
-import windiConfig from './windi.config'
 import { isDev, port, r } from './scripts/utils'
+import windiConfig from './windi.config'
 
 export const sharedConfig: UserConfig = {
   root: r('src'),
@@ -23,8 +24,8 @@ export const sharedConfig: UserConfig = {
     __DEV__: isDev,
   },
   plugins: [
+    React(),
     Vue(),
-
     AutoImport({
       imports: [
         'vue',
@@ -68,6 +69,7 @@ export const sharedConfig: UserConfig = {
   ],
   optimizeDeps: {
     include: [
+      'react',
       'vue',
       '@vueuse/core',
       'webextension-polyfill',
@@ -98,8 +100,8 @@ export default defineConfig(({ command }) => ({
     rollupOptions: {
       input: {
         background: r('src/background/index.html'),
-        options: r('src/options/index.html'),
-        popup: r('src/popup/index.html'),
+        // options: r('src/options/index.html'),
+        // popup: r('src/popup/index.html'),
       },
     },
   },

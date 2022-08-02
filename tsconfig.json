@@ -2,16 +2,17 @@
   "compilerOptions": {
     "baseUrl": ".",
     "module": "ESNext",
-    "target": "es2016",
+    "target": "ESNext",
     "lib": ["DOM", "ESNext"],
     "strict": true,
     "esModuleInterop": true,
     "incremental": false,
     "skipLibCheck": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     // "noUnusedLocals": true,
+    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
       "vite/client"
@@ -20,5 +21,6 @@
       "~/*": ["src/*"]
     }
   },
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules"],
+  // "references": [{ "path": "./tsconfig.node.json" }]
 }
