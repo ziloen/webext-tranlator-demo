@@ -57,8 +57,7 @@ export async function getManifest() {
 
   if (isDev) {
     // for content script, as browsers will cache them for each reload,
-    // we use a background script to always inject the latest version
-    // see src/background/contentScriptHMR.ts
+    // 由于 content_scripts 热更新暂未实现，不删除此字段
     // delete manifest.content_scripts
     manifest.permissions?.push('webNavigation')
   }
